@@ -34,6 +34,7 @@ def get_all_half_vector(dimension):
         vector.append(0.5)
     return vector
 
+
 def generate_ids(max_id):
     ids = []
     for i in range(max_id):
@@ -71,8 +72,11 @@ def chunk_it(seq, size):
 if __name__ == '__main__':
     # Step 1: Specify index name
     # Change index name accordingly for different experiments.
-    # TODO: change the index name accordingly
-    test_index_name = "metadata_filtering_20220809"
+    # TODO: Fill the index name accordingly
+    test_index_name = ""
+    if len(test_index_name) == 0:
+        raise Exception("Please specify a non-empty index name.")
+
     test_dimension = 128
     test_max_id = 3000
 
