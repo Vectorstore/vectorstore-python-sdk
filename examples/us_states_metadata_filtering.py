@@ -92,4 +92,4 @@ if __name__ == '__main__':
     query_index(test_index_name, query_vector)
 
     # If need to delete index, uncomment the line.
-    # VectorstoreClient.delete_index(test_index_name)
+    VECTORSTORE_CLIENT.delete_index(test_index_name)
