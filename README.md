@@ -28,4 +28,4 @@ Vectorstore Client is located in src/vectorstore_client.py, which has the Vector
 
 #### Example of ingestion code.
 
-The example code is located in examples/metadata_filtering.py, which generates random vectors and metadata (one of US state). In its main function, it shows the steps: create an index, index vectors and query.
+The example code is located in examples/us_states_metadata_filtering.py, which generates random vectors and metadata (one of US state). In its main function, it shows the steps: create an index, index vectors and query.
