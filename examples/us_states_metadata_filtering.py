@@ -82,7 +82,7 @@ if __name__ == '__main__':
     test_max_id = 3000
 
     # Step 2: Create index
-    # 4096 is vector dimension, while 100000 is the max_number_vectors, which is greater
+    # test_dimension is vector dimension, while 100000 is the max_number_vectors, which is greater
     # than the number of vectors specified as test_max_id.
     # This step is only needed once when creating index. After the index is created, this line can be
     # commented out.
