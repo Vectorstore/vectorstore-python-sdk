@@ -31,6 +31,8 @@ Your implementation can use this client. In addition, an example code is provide
 #### Example code
 
 The example code is located in examples/us_states_metadata_filtering.py, which generates random vectors and metadata
-(one of US state). In its main function, it shows the steps: create an index, index vectors and query.
+(one of US state). In its main function, it shows the steps: create an index, index vectors and query. Before running
+the code, please fill variables "API_KEY" and "test_index_name", which are marked as TODO. If those two variables
+are not assigned, the exception is raised with a corresponding error message.
 
 If you have any questions, please shoot an email to xiejuncs@gmail.com

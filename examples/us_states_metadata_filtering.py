@@ -78,21 +78,28 @@ if __name__ == '__main__':
         raise Exception("Please specify a non-empty index name.")
 
     test_dimension = 128
+    # Number of vectors to be ingested
     test_max_id = 3000
 
     # Step 2: Create index
-    # 4096 is vector dimension, while 50000 is the max_number_vectors, which is greater
-    # than the number of vectors in data file.
+    # 4096 is vector dimension, while 100000 is the max_number_vectors, which is greater
+    # than the number of vectors specified as test_max_id.
+    # This step is only needed once when creating index. After the index is created, this line can be
+    # commented out.
     VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000)
 
+    # Step 3: Batch index vectors
+    # This step is only needed once in this example. After the index is finished, this line can be
+    # commented out.
     batch_index_vectors(test_index_name, test_max_id, test_dimension)
 
     # Sleep 30 seconds to build index.
     time.sleep(30)
 
+    # step 4: Generate a vector to query the test_index_name in the Vectorstore
     # query_vector = get_random_vector(test_dimension)
     query_vector = get_all_half_vector(test_dimension)
     query_index(test_index_name, query_vector)
 
-    # If need to delete index, uncomment the line.
+    # Step 5: Remove index if needed by uncommenting the line below.
     # VECTORSTORE_CLIENT.delete_index(test_index_name)
