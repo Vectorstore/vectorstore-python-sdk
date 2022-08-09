@@ -11,8 +11,8 @@ class Item:
 
 # API Reference: https://docs.google.com/document/d/1kwZr28YJa_baLFfd3ii2dvnHzY__rwCg1KiUq3QPeJU/edit?usp=sharing
 class VectorstoreClient:
-    def __init__(self, api_key):
-        self.host_name = "https://maplevector.dev"
+    def __init__(self, host_name, api_key):
+        self.host_name = host_name
         self.headers = {"api_key": api_key, 'Content-type': 'application/json'}
 
     # Link: https://docs.google.com/document/d/1kwZr28YJa_baLFfd3ii2dvnHzY__rwCg1KiUq3QPeJU/edit#heading=h.r3ld8u9wfcqr
