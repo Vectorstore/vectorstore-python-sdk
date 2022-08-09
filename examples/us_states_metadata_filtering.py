@@ -87,9 +87,12 @@ if __name__ == '__main__':
 
     batch_index_vectors(test_index_name, test_max_id, test_dimension)
 
+    # Sleep 30 seconds to build index.
+    time.sleep(30)
+
     # query_vector = get_random_vector(test_dimension)
     query_vector = get_all_half_vector(test_dimension)
     query_index(test_index_name, query_vector)
 
     # If need to delete index, uncomment the line.
-    VECTORSTORE_CLIENT.delete_index(test_index_name)
+    # VECTORSTORE_CLIENT.delete_index(test_index_name)
