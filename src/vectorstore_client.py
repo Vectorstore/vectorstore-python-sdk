@@ -12,6 +12,8 @@ class Item:
 # API Reference: https://docs.google.com/document/d/1kwZr28YJa_baLFfd3ii2dvnHzY__rwCg1KiUq3QPeJU/edit?usp=sharing
 class VectorstoreClient:
     def __init__(self, host_name, api_key):
+        if len(api_key) == 0:
+            raise Exception("api_key can't be empty.")
         self.host_name = host_name
         self.headers = {"api_key": api_key, 'Content-type': 'application/json'}
 
