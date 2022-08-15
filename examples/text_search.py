@@ -1,4 +1,5 @@
 from src.vectorstore_client import VectorstoreClient, Item
+# Install sentence_transformers via https://pypi.org/project/sentence-transformers/
 from sentence_transformers import SentenceTransformer
 
 
@@ -18,6 +19,7 @@ def index_vectors(index_name):
     for x in range(len(sentences)):
         # Use item_id starting from 1 instead of 0.
         item_id = x + 1
+        # Need to convert ndarray to list as the API is based on JSON.
         vector = model.encode(sentences[x]).tolist()
         VECTORSTORE_CLIENT.index_item(index_name, Item(item_id, vector, {}))
 
