@@ -6,7 +6,6 @@ from sentence_transformers import SentenceTransformer
 API_KEY = ""
 HOST = "https://maplevector.dev"
 VECTORSTORE_CLIENT = VectorstoreClient(HOST, API_KEY)
-BATCH_SIZE = 100
 HEADERS = {"api_key": API_KEY, 'Content-type': 'application/json'}
 
 model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
