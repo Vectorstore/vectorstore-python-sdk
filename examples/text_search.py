@@ -1,7 +1,9 @@
-from src.vectorstore_client import VectorstoreClient, Item
+import time
+
 # Install sentence_transformers via https://pypi.org/project/sentence-transformers/
 from sentence_transformers import SentenceTransformer
 
+from src.vectorstore_client import VectorstoreClient, Item
 
 # TODO: Need to replace this with specific API key
 API_KEY = ""
@@ -36,6 +38,16 @@ if __name__ == '__main__':
 
     # Step 2. Index item one by one
     index_vectors(test_index_name)
+
+    # Sleep 30 seconds to build index.
+    time.sleep(30)
+
+    query_vector = model.encode("test").tolist()
+    start = time.time()
+    response = VECTORSTORE_CLIENT.query("cards", query_vector, 3)
+    print("query_index", response.status_code, response.json())
+    end = time.time()
+    print(end - start)
 
     # Step 3. Delete index
     # VECTORSTORE_CLIENT.delete_index(test_index_name)
