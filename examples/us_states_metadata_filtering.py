@@ -57,7 +57,7 @@ def batch_index_vectors(index_name, max_number, dimension):
 
 def query_index(index_name, vector):
     start = time.time()
-    response = VECTORSTORE_CLIENT.query(index_name, vector, 10, filter_expr="state in [CA, OR]")
+    response = VECTORSTORE_CLIENT.query(index_name, vector, 10, filter_expr="state in ['CA', 'OR']")
     print("query_index", response.status_code, response.json())
     end = time.time()
     print(end - start)
