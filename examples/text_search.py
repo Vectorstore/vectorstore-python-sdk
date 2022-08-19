@@ -44,7 +44,8 @@ if __name__ == '__main__':
 
     query_vector = model.encode("test").tolist()
     start = time.time()
-    response = VECTORSTORE_CLIENT.query("cards", query_vector, 3)
+    response = VECTORSTORE_CLIENT.query(test_index_name, query_vector, 20,
+                                        filter_expr="user_id == 'ebeb4eaf-72ae-410a-8fab-c168e11c58f1'")
     print("query_index", response.status_code, response.json())
     end = time.time()
     print(end - start)
