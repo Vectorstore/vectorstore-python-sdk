@@ -18,12 +18,17 @@ class VectorstoreClient:
         self.headers = {"api_key": api_key, 'Content-type': 'application/json'}
 
     # Link: https://docs.google.com/document/d/1kwZr28YJa_baLFfd3ii2dvnHzY__rwCg1KiUq3QPeJU/edit#heading=h.r3ld8u9wfcqr
-    def create_index(self, index_name, dimension, max_num_vectors):
+    # similarity_metric only allows three options: l2, ip, cosine
+    # l2 -> Squared L2
+    # ip -> inner product distance = 1 - inner product of two vectors
+    # cosine -> cosine similarity distance = 1 - cosine of two vectors
+    def create_index(self, index_name, dimension, max_num_vectors, similarity_metric):
         create_index_endpoint = self.host_name + "/create_index"
         data = {
             "index_name": index_name,
             "dimension": dimension,
-            "max_num_vectors": max_num_vectors
+            "max_num_vectors": max_num_vectors,
+            "similarity_metric": similarity_metric
         }
 
         return requests.post(create_index_endpoint, headers=self.headers, json=data)

@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
     test_dimension = 768
     # Step 1. Create index
-    VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000)
+    VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000, "l2")
 
     # Step 2. Index item one by one
     index_vectors(test_index_name)
