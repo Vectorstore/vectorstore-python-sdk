@@ -39,9 +39,6 @@ if __name__ == '__main__':
     # Step 2. Index item one by one
     index_vectors(test_index_name)
 
-    # Sleep 30 seconds to build index.
-    time.sleep(30)
-
     query_vector = model.encode("test").tolist()
     start = time.time()
     response = VECTORSTORE_CLIENT.query(test_index_name, query_vector, 20,

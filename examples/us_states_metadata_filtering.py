@@ -93,9 +93,6 @@ if __name__ == '__main__':
     # commented out.
     batch_index_vectors(test_index_name, test_max_id, test_dimension)
 
-    # Sleep 30 seconds to build index.
-    time.sleep(30)
-
     # step 4: Generate a vector to query the test_index_name in the Vectorstore
     # query_vector = get_random_vector(test_dimension)
     query_vector = get_all_half_vector(test_dimension)
