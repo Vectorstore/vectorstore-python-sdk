@@ -34,14 +34,12 @@ if __name__ == '__main__':
 
     test_dimension = 768
     # Step 1. Create index
-    VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000)
+    VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000, "l2")
 
     # Step 2. Index item one by one
     index_vectors(test_index_name)
 
-    # Sleep 30 seconds to build index.
-    time.sleep(30)
-
+    # Step 3. Query index to get similar results.
     query_vector = model.encode("test").tolist()
     start = time.time()
     response = VECTORSTORE_CLIENT.query(test_index_name, query_vector, 20,
@@ -50,5 +48,5 @@ if __name__ == '__main__':
     end = time.time()
     print(end - start)
 
-    # Step 3. Delete index
+    # Step 4. Delete index
     # VECTORSTORE_CLIENT.delete_index(test_index_name)

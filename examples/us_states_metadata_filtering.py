@@ -86,15 +86,12 @@ if __name__ == '__main__':
     # than the number of vectors specified as test_max_id.
     # This step is only needed once when creating index. After the index is created, this line can be
     # commented out.
-    VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000)
+    VECTORSTORE_CLIENT.create_index(test_index_name, test_dimension, 100000, "l2")
 
     # Step 3: Batch index vectors
     # This step is only needed once in this example. After the index is finished, this line can be
     # commented out.
     batch_index_vectors(test_index_name, test_max_id, test_dimension)
-
-    # Sleep 30 seconds to build index.
-    time.sleep(30)
 
     # step 4: Generate a vector to query the test_index_name in the Vectorstore
     # query_vector = get_random_vector(test_dimension)
