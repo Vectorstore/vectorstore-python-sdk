@@ -39,6 +39,7 @@ if __name__ == '__main__':
     # Step 2. Index item one by one
     index_vectors(test_index_name)
 
+    # Step 3. Query index to get similar results.
     query_vector = model.encode("test").tolist()
     start = time.time()
     response = VECTORSTORE_CLIENT.query(test_index_name, query_vector, 20,
@@ -47,5 +48,5 @@ if __name__ == '__main__':
     end = time.time()
     print(end - start)
 
-    # Step 3. Delete index
+    # Step 4. Delete index
     # VECTORSTORE_CLIENT.delete_index(test_index_name)
